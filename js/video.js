@@ -21,7 +21,7 @@ document.querySelector("#slower").addEventListener("click", function() {
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-	video.playbackRate *= 1.05;
+	video.playbackRate /= 0.95;
 	console.log("current playback rate is ", video.playbackRate);
 });
 
@@ -46,6 +46,30 @@ document.querySelector("#mute").addEventListener("click", function() {
 		text = "Unmute"
 	}
 	console.log("current mute state is ", video.playbackRate);
+});
+
+document.querySelector("#slider").addEventListener("change", function() {
+	video.volume = this.value / 100;
+	var volume = document.querySelector("#volume")
+	volume.innerHTML = this.value
+});
+
+// var volumeControl = document.getElementById('slider');
+
+// var setVolume = function(){
+//     video.volume = this.value / 100;
+// 	var volume = document.querySelector("#volume")
+// 	volume.innerHTML = this.value
+// };
+
+// volumeControl.addEventListener('change',setVolume);
+
+document.querySelector("#vintage").addEventListener("click", function() {
+	video.classList.add("oldSchool");
+});
+
+document.querySelector("#orig").addEventListener("click", function() {
+	video.classList.remove("oldSchool");
 });
 
 
